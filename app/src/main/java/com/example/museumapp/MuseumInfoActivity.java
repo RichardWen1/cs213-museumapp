@@ -1,16 +1,12 @@
 package com.example.museumapp;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -46,7 +42,7 @@ public class MuseumInfoActivity extends AppCompatActivity {
             }
         });
 
-        TextView textView = (TextView) findViewById(R.id.textView);
+        textView = (TextView) findViewById(R.id.textView);
         String[] priceStrings = getStringById("prices", museumId).split(",");
         int[] prices = new int[3];
         for (int i = 0; i < prices.length; i++) {
