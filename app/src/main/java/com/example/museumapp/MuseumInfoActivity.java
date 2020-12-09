@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,12 +27,12 @@ public class MuseumInfoActivity extends AppCompatActivity {
     Spinner[] spinners = new Spinner[3];
     TextView priceTotal;
 
-    Button backButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_museum_info);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         int museumId = getIntent().getIntExtra("MUSEUM_ID", -1);
         if (museumId == -1) finish();
@@ -50,7 +52,7 @@ public class MuseumInfoActivity extends AppCompatActivity {
         for (int i = 0; i < prices.length; i++) {
             prices[i] = Integer.parseInt(priceStrings[i]);
         }
-        textView.setText(getString(R.string.price_info) + "\nAdults: " + prices[0] + "\nSeniors: " + prices[1] + "\nStudents: " + prices[2]);
+        textView.setText(getString(R.string.price_info) + "\nAdults: $" + prices[0] + "\nSeniors: $" + prices[1] + "\nStudents: $" + prices[2]);
 
 
         spinners[0] = (Spinner) findViewById(R.id.spinner1);
@@ -65,8 +67,6 @@ public class MuseumInfoActivity extends AppCompatActivity {
             spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    Log.i("hi", "test");
-
                     int total = 0;
                     for (int j = 0; j < 3; j++) {
                         total += prices[j] * Integer.parseInt(spinners[j].getSelectedItem().toString());
@@ -81,15 +81,9 @@ public class MuseumInfoActivity extends AppCompatActivity {
             });
         }
 
-
-
-        backButton = (Button) findViewById(R.id.backButton);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        Toast t = Toast.makeText(this, R.string.ticket_limit, Toast.LENGTH_LONG);
+        t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
+        t.show();
     }
 
     private String getStringById(String tag, int id) {

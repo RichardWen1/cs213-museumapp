@@ -4,6 +4,7 @@
     <string name="price_info"><u>Ticket Prices</u></string>
     <string name="ticket_limit">Maximum of 5 tickets for each!</string>
 
+    <string name="museum_image_desc">Click to go to museum website</string>
     <string name="spinner_label_1">Adults</string>
     <string name="spinner_label_2">Seniors</string>
     <string name="spinner_label_3">Students</string>
