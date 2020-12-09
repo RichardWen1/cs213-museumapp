@@ -1,5 +1,30 @@
 <resources>
     <string name="app_name">Museums</string>
-    <string name="list_click">You have selected museum&#160;</string>
     <string name="back_button">Back</string>
+    <string name="price_info"><u>Ticket Prices</u></string>
+    <string name="ticket_limit">Maximum of 5 tickets for each!</string>
+
+    <string name="spinner_label_1">Adults</string>
+    <string name="spinner_label_2">Seniors</string>
+    <string name="spinner_label_3">Students</string>
+
+    <string name="museum0">Metropolitan Museum of Art</string>
+    <string name="image0">metropolitan_museum_of_art</string>
+    <string name="site0">https://www.metmuseum.org/</string>
+    <string name="prices0">25,17,12</string>
+
+    <string name="museum1">Museum of Modern Art</string>
+    <string name="image1">museum_of_modern_art</string>
+    <string name="site1">https://www.moma.org/</string>
+    <string name="prices1">25,18,14</string>
+
+    <string name="museum2">Brooklyn Museum</string>
+    <string name="image2">brooklyn_museum</string>
+    <string name="site2">https://www.brooklynmuseum.org/</string>
+    <string name="prices2">16,10,10</string>
+
+    <string name="museum3">American Museum of Natural History</string>
+    <string name="image3">american_museum_of_natural_history</string>
+    <string name="site3">https://www.amnh.org/</string>
+    <string name="prices3">23,18,18</string>
 </resources>

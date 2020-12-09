@@ -14,13 +14,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
-    public static String[] museums = {
-            "The Metropolitan Museum of Art",
-            "Museum of Modern Art",
-            "Brooklyn Museum",
-            "American Museum of Natural History",
-    };
-
     ListView listview;
 
     @Override
@@ -30,7 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
         listview = (ListView) findViewById(R.id.listview);
 
-        ArrayList<String> list = new ArrayList<>(Arrays.asList(museums));
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0, resId; (resId = getResources().getIdentifier("museum" + i, "string", getPackageName())) != 0; i++) {
+            list.add(getString(resId));
+        }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         listview.setAdapter(adapter);
@@ -39,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplicationContext(), MuseumInfoActivity.class);
-                intent.putExtra("MUSEUM_NAME", museums[i]);
+                intent.putExtra("MUSEUM_ID", i);
                 startActivity(intent);
             }
         });
