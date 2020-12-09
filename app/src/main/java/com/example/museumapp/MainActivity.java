@@ -2,6 +2,7 @@ package com.example.museumapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -37,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(MainActivity.this, getString(R.string.list_click) + i + " - " + museums[i], Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), MuseumInfoActivity.class);
+                intent.putExtra("MUSEUM_NAME", museums[i]);
+                startActivity(intent);
             }
         });
     }

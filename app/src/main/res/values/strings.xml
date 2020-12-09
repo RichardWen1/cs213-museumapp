@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Museums</string>
     <string name="list_click">You have selected museum&#160;</string>
+    <string name="back_button">Back</string>
 </resources>
