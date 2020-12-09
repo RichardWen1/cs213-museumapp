@@ -3,29 +3,42 @@ package com.example.museumapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity {
-    Button testButton;
+    public static String[] museums = {
+            "The Metropolitan Museum of Art",
+            "Museum of Modern Art",
+            "Brooklyn Museum",
+            "American Museum of Natural History",
+    };
+
+    ListView listview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        testButton = (Button)findViewById(R.id.button);
+        listview = (ListView) findViewById(R.id.listview);
 
-        testButton.setOnClickListener(new View.OnClickListener() {
-           @Override public void onClick(View v) {
-               Toast t = Toast.makeText(getApplicationContext(),
-                       "This is a positioned Toast message",
-                       Toast.LENGTH_LONG);
-               t.setGravity(Gravity.BOTTOM | Gravity.RIGHT, 0, 0);
-               t.show();
-           }
+        ArrayList<String> list = new ArrayList<>(Arrays.asList(museums));
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
+        listview.setAdapter(adapter);
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(MainActivity.this, getString(R.string.list_click) + i + " - " + museums[i], Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }
