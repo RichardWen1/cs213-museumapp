@@ -1,3 +1,8 @@
+/*
+Elise Merritt and Richard Wen - em575 and rrw56
+Main activity for the museum app
+*/
+
 package com.example.museumapp;
 
 import android.content.Intent;
@@ -8,7 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {

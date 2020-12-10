@@ -1,3 +1,8 @@
+/*
+Elise Merritt and Richard Wen - em575 and rrw56
+Second activity for the museum app
+ */
+
 package com.example.museumapp;
 
 import android.content.Intent;
