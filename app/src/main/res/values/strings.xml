@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Museums</string>
+    <string name="main_title">Museum List</string>
+    <string name="info_title">Museum Info</string>
+
     <string name="back_button">Back</string>
     <string name="price_info"><u>Ticket Prices</u></string>
     <string name="ticket_limit">Maximum of 5 tickets for each!</string>
